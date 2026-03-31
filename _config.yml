@@ -1,0 +1,1 @@
+title: Ocean Pollution Monitoring System\ndescription: A project to monitor and analyze ocean pollution levels.\nauthor: Iannoh Lab\ndate: 2026-03-31\ntheme: minima\nplugins:\n  - jekyll-feed\n  - jekyll-seo-tag\nbaseurl: "/ocean-pollution-monitoring-system"\nhighlight: true\nmarkdown: kramdown\nexclude:\n  - Gemfile\n  - Gemfile.lock\n
