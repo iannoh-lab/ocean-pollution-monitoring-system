@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      POLLUTION_MONITORING_API_KEY: your_api_key_here
+      POLLUTION_MONITORING_ENDPOINT: your_endpoint_here
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --fail http://localhost:5000/health || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
