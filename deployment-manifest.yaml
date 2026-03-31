@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocean-pollution-monitor
+  labels:
+    app: ocean-pollution-monitor
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ocean-pollution-monitor
+  template:
+    metadata:
+      labels:
+        app: ocean-pollution-monitor
+    spec:
+      containers:
+      - name: ocean-pollution-monitor
+        image: your-docker-image:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+        - name: ENVIRONMENT
+          value: production
+        - name: DATABASE_URL
+          value: your-database-url
